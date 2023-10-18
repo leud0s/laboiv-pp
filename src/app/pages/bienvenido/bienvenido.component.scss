@@ -1,0 +1,27 @@
+.container-text{
+    max-width: 750px;
+  }
+  .main{
+    height: 90%;
+  }
+  .contenedor{
+    min-height: 90% !important;
+  }
+  
+  img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+  }
+  .btn{
+    text-decoration: none;
+    background-color: purple;
+    border: 1px solid purple;
+  }
+  .btn:hover{
+    background-color: rgb(177, 18, 177);
+  }
+  .icon{
+    height: 30px;
+    width: 30px;
+  }

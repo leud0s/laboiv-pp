@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "labovi-pp": {
+      "hosting": {
+        "laboiv-pp": [
+          "labovi-pp"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "labovi-pp"
+  }
+}

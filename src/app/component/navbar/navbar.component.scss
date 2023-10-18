@@ -1,0 +1,21 @@
+nav{
+    background-color: purple;
+    .navbar-brand, .navbar-toggler-icon
+    {
+        color: #fff!important;
+    }
+}
+.navbar-toggler{
+    color: #fff !important;
+}
+.offcanvas{
+    background-color: rgb(177, 18, 177);
+}
+li{
+    list-style: none;
+}
+.nav-link{
+    color: #ffff;
+    font-size: 1.5rem;
+    margin: 15px;
+}
