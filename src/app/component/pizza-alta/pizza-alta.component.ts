@@ -36,6 +36,7 @@ export class PizzaAltaComponent {
     if (this.formAlta.invalid) return;
 
     const pizza={
+      id: Math.floor(Math.random() * 10000000).toLocaleString(),
       nombre: this.nombre.value,
       ingredientes: this.ingredientes.value,
       precio: Number(this.precio.value),

@@ -46,9 +46,10 @@ export class PizzaModificacionComponent {
       id: this.pizza.id,
     }
 
-    this.pizzaService.updatePizza(pizza).then(res=>{
-      this.formMod.reset()
-    });
+    this.pizzaService.updatePizza(pizza.id, pizza)
+      .then(() => console.log('Pizza actualizada correctamente'))
+      .catch(error => console.error('Error al actualizar la pizza', error))
+      this.formMod.reset();
   }
 
   validateEmptyInputs() {
