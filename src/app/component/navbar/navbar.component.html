@@ -12,7 +12,7 @@
               Repartidor
             </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Alta</a></li>
+              <li><a class="dropdown-item" routerLink="/alta-repartidor">Alta</a></li>
               <li><a class="dropdown-item" href="#">Detalle</a></li>
             </ul>
           </li>
@@ -27,17 +27,13 @@
           </li>
     </div>
 
-    <!--<ng-container *ngIf="showButtons">
+    <ng-container *ngIf="showButtons">
       <div *ngIf="usuario" class="dropdown-center  ">
         <button class="btn btn-lg dropdown-toggle text-light" type="button" data-bs-toggle="dropdown"
           aria-expanded="false ">
           {{usuario.email}}
         </button>
         <ul class="dropdown-menu w-100">
-          <li class="p-2">
-            <b>Perfil: </b>
-            <span>{{userProfile[usuario.profile]}}</span>
-          </li>
           <li class="p-2">
             <button class="btn text-light w-100 bg-danger" (click)="loguot()">Cerrar Sesión</button>
           </li>
@@ -49,7 +45,7 @@
           <button class="btn btn-primary">Iniciar Sesión</button>
         </a>
       </div>
-    </ng-container>-->
+    </ng-container>
     </div>
     </div>
   </nav>

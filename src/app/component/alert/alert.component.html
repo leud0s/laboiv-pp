@@ -1,6 +1,5 @@
-<div class="alert">
-    <p>{{text}}</p>
-  <div>
-    <i class="fa-solid fa-xmark" (click)="onClick()"></i>
+<div class="container-alert">
+  <div class="alert alert-danger {{hidden ? 'hidden' : ''}}" role="alert"><i class="fa-solid fa-triangle-exclamation"></i>
+      {{data}}
   </div>
 </div>

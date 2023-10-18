@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 import { GithubService } from 'src/app/services/github.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class BienvenidoComponent implements OnInit{
   loading = false;
   infoGithub!: any;
 
-  constructor(private githubService: GithubService) {}
+  constructor(private githubService: GithubService,private authService: AuthService) {}
   ngOnInit(): void {
     this.cargarUsuario();
     this.githubService.getInfo().then((res) => {
@@ -21,9 +22,6 @@ export class BienvenidoComponent implements OnInit{
   }
 
   cargarUsuario() {
-    let user = localStorage.getItem('user');
-    if (user !== null) {
-      this.user = JSON.parse(user);
-    }
+    this.user  = this.authService.getCurrentUser();
   }
 }

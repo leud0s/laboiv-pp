@@ -1,45 +1,122 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Component, inject } from '@angular/core';
+import { Firestore } from '@angular/fire/firestore';
+import {
+  Auth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+  User
+} from '@angular/fire/auth';
+import {
+  collection,
+  addDoc,
+  collectionData,
+  query,
+  where,
+  getDoc,
+  doc,
+  setDoc,
+  updateDoc,
+  getDocs,
+} from '@angular/fire/firestore';
 import {AngularFirestore} from '@angular/fire/compat/firestore';
+// import { User } from '../classes/user';
+import { Observable, Subscription } from 'rxjs';
 
-import {getAuth, updateProfile} from "firebase/auth"; 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class AuthService {
-  constructor(
-    private auth: AngularFireAuth,
-    private db: AngularFirestore
-  ) { }
+ 
+ // usersRef = collection(this.firestore, 'usuarios');
 
-  login(user:any){
-    return this.auth.signInWithEmailAndPassword(user.email,user.password)
-  }
+  constructor(private auth: Auth, private db: AngularFirestore) {}
 
-  signinUp(email:string, password:string){
-    return this.auth.createUserWithEmailAndPassword(email,password)
+  //** AUTH **
+  register({ email, password }: any) {
+    return createUserWithEmailAndPassword(this.auth, email, password);
   }
 
-  updateUser(user: any){
-    const auth = getAuth();
-    return updateProfile(auth.currentUser, user)
+  login({ email, password }: any) {
+    return signInWithEmailAndPassword(this.auth, email, password);
   }
-  logout(){
-    return this.auth.signOut();
+
+  logout() {
+    return signOut(this.auth);
   }
- saveLog(email : string){
+
+  getCurrentUser(){
+    return this.auth.currentUser;
+  }
+
+  saveLog(email : string){
     let date = new Date();
     const fullDate = date.toLocaleDateString() + '-' + date.toLocaleTimeString();
    
-    let logs = this.db.collection('users');
+    let logs = this.db.collection('usuarios');
     logs.doc().set({
       email: email,
       fecha_ingreso: fullDate
     })
 
   }
-  
-  getUserLogged() {
-    return this.auth.authState;
+  //** FIRESTORE **
+ /* addUserAuto(user: User) {
+    return addDoc(this.usersRef, user);
   }
+
+  getUsersObserver(): Observable<User[]> {
+    return collectionData(this.usersRef, { idField: 'id' }) as Observable<
+      User[]
+    >;
+  }
+
+  getUsersByEmailObserver(email: string) {
+    const q = query(this.usersRef, where('email', '==', email));
+    return collectionData(q, { idField: 'id' }) as Observable<User[]>;
+  }
+
+  addUserById(user: User, id: string) {
+    setDoc(doc(this.usersRef, id), user);
+  }
+
+  getUserById(id: string) {
+    return getDoc(doc(this.usersRef, id));
+  }
+
+
+  //** TESTING
+  setTest() {
+    const usuarioTest = {
+      email: 'juan@gmail.com',
+      password: '123456',
+      profile: 2,
+      gender: 2,
+      urlImg: '..',
+    };
+
+    //* Setear un documento con un id especifico, si no existe lo crea.
+    //* Tiene que se un objeto normal.
+
+    // setDoc(doc(this.usersRef, '8X0pYR650YaqYG.TESTING'), usuarioTest)
+    //   .then((res) => console.log(res))
+    //   .catch((err) => console.log(err));
+
+    //* Obtener un documento por su id
+
+    // getDoc(doc(this.usersRef, '8ko70UusxiZKkRcQUmYadPca1kj1'))
+    //   .then((res) => console.log(res.data()))
+    //   .catch((err) => console.log(err));
+
+    //* Obtener el primer documento de un array usando una query
+
+    const consulta = query(
+      this.usersRef,
+      where('email', '==', 'juan@gmail.com')
+    );
+    getDocs(consulta)
+      .then((res) => console.log(res.docs[0].data()))
+      .catch((err) => console.log(err));
+  }*/
 }
