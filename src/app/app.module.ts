@@ -13,7 +13,6 @@ import { provideAuth, getAuth } from '@angular/fire/auth';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { provideStorage, getStorage } from '@angular/fire/storage';
 import { RouterModule, provideRouter } from '@angular/router';
-import { ModalUsersComponent } from './component/modal-users/modal-users.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SpinnerComponent } from './component/spinner/spinner.component';
 import { FormInputComponent } from './component/form-input/form-input.component';
@@ -27,6 +26,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { TablaPaisesComponent } from './component/tabla-paises/tabla-paises.component';
 import { FormRepartidorComponent } from './component/form-repartidor/form-repartidor.component';
+import { RepartidorListadoComponent } from './component/repartidor-listado/repartidor-listado.component';
+import { RepartidorDetalleComponent } from './pages/repartidor-detalle/repartidor-detalle.component';
+import { DetalleCardComponent } from './component/detalle-card/detalle-card.component';
+import { DetallePaisComponent } from './component/detalle-pais/detalle-pais.component';
+import { PizzaAltaComponent } from './component/pizza-alta/pizza-alta.component';
+import { PizzaBajaComponent } from './component/pizza-baja/pizza-baja.component';
+import { PizzaModificacionComponent } from './component/pizza-modificacion/pizza-modificacion.component';
+import { PizzaListaComponent } from './component/pizza-lista/pizza-lista.component';
+import { PizzaAbmComponent } from './pages/pizza-abm/pizza-abm.component';
 
 @NgModule({
     declarations: [
@@ -37,9 +45,17 @@ import { FormRepartidorComponent } from './component/form-repartidor/form-repart
         LoginComponent,
         SpinnerComponent,
         FormInputComponent,
-        ModalUsersComponent,
         FormRepartidorComponent,
-        TablaPaisesComponent
+        TablaPaisesComponent,
+        RepartidorListadoComponent,
+        RepartidorDetalleComponent,
+        DetalleCardComponent,
+        DetallePaisComponent,
+        PizzaAltaComponent,
+        PizzaBajaComponent,
+        PizzaModificacionComponent,
+        PizzaListaComponent,
+        PizzaAbmComponent
     ],
     providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
     bootstrap: [AppComponent],
