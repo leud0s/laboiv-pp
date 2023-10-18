@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, ViewChild } from '@angular/core';
 import { Pizza } from 'src/app/models/pizza.models';
 import { PizzaService } from 'src/app/services/pizza.service';
 

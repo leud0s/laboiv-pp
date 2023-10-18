@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { PizzaModificacionComponent } from 'src/app/component/pizza-modificacion/pizza-modificacion.component';
 import { Pizza } from 'src/app/models/pizza.models';
 
 @Component({
@@ -10,7 +11,7 @@ export class PizzaAbmComponent {
   user!: any;
   selected!: Pizza;
   loading = false;
-  //@ViewChild('modificar') modificar !: PizzaModificacionComponent;
+  @ViewChild('modificar') modificar !: PizzaModificacionComponent;
 
   ngOnInit(): void {
     this.cargarUsuario();
@@ -18,7 +19,7 @@ export class PizzaAbmComponent {
 
   selectedPizza(e: any) {
     this.selected = e;
-    //this.modificar.setValuesForm(e);
+    this.modificar.setValuesForm(e);
   }
 
   pizzaCreada(e: Pizza) {
