@@ -1,0 +1,37 @@
+<form (submit)="onSubmit()" [formGroup]="formProducto">
+
+    <app-form-input class="form-control {{codigo.errors ? 'is-invalid': ''}}" divClass="mb-3" label="Código"
+      controlName="codigo" type="text">
+      <small class="invalid-feedback">Código invalido (solo numeros) </small>
+    </app-form-input>
+  
+    <app-form-input class="form-control {{descripcion.errors ? 'is-invalid': ''}}" divClass="mb-3" label="Descripción"
+      controlName="descripcion" type="text">
+      <small class="invalid-feedback">Descripción invalida (solo letras)</small>
+    </app-form-input>
+  
+    <app-form-input class="form-control {{precio.errors ? 'is-invalid': ''}}" divClass="mb-3" label="Precio"
+      controlName="precio" type="text">
+      <small class="invalid-feedback">Precio invalido (solo numeros)</small>
+    </app-form-input>
+  
+    <div class="form-floating mb-3">
+      <select formControlName="comestible" class="form-select {{comestible.errors ? 'is-invalid': ''}}"
+        id="floatingInputValue">
+        <option [value]="true">Si</option>
+        <option [value]="false">No</option>
+      </select>
+      <label for="floatingInputValue">Producto Comestible</label>
+    </div>
+  
+    <app-form-input class="form-control {{stock.errors ? 'is-invalid': ''}}" divClass="mb-3"
+      label="Stock" controlName="stock" type="text">
+    </app-form-input>
+  
+    <app-form-input class="form-control {{pais.errors ? 'is-invalid': ''}}" divClass="mb-3"
+      label="Pais" controlName="pais" type="text" [readOnly]="true">
+      <small class="invalid-feedback">Pais invalido</small>
+    </app-form-input>
+  
+    <button type="submit" class="btn btn-primary mt-2">Enviar</button>
+  </form>

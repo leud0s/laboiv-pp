@@ -35,6 +35,12 @@ import { PizzaBajaComponent } from './component/pizza-baja/pizza-baja.component'
 import { PizzaModificacionComponent } from './component/pizza-modificacion/pizza-modificacion.component';
 import { PizzaListaComponent } from './component/pizza-lista/pizza-lista.component';
 import { PizzaAbmComponent } from './pages/pizza-abm/pizza-abm.component';
+import { FormProductoComponent } from './component/form-producto/form-producto.component';
+import { AltaProductoComponent } from './pages/alta-producto/alta-producto.component';
+import { DetalleProductoComponent } from './component/detalle-producto/detalle-producto.component';
+import { ProductoListadoComponent } from './component/producto-listado/producto-listado.component';
+import { ProductoDetalleComponent } from './pages/producto-detalle/producto-detalle.component';
+import { ProductoDetallePublicoComponent } from './pages/producto-detalle-publico/producto-detalle-publico.component';
 
 @NgModule({
     declarations: [
@@ -55,7 +61,13 @@ import { PizzaAbmComponent } from './pages/pizza-abm/pizza-abm.component';
         PizzaBajaComponent,
         PizzaModificacionComponent,
         PizzaListaComponent,
-        PizzaAbmComponent
+        PizzaAbmComponent,
+        FormProductoComponent,
+        AltaProductoComponent,
+        DetalleProductoComponent,
+        ProductoListadoComponent,
+        ProductoDetalleComponent,
+        ProductoDetallePublicoComponent
     ],
     providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
     bootstrap: [AppComponent],

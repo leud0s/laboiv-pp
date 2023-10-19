@@ -1,0 +1,17 @@
+<ng-container>
+    <div class="table-container overflow-y-auto">
+      <div class="flags-container">
+        <div *ngFor="let producto of productos" (click)="onClick(producto)"
+          class="d-flex flex-column m-3 justify-content-center align-items-center purple rounded">
+          <div>
+            <b>Código: </b>
+            <span>{{producto.codigo}}</span>
+          </div>
+          <div>
+            <b>Descripción: </b>
+            <span>{{producto.descripcion}}</span>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </ng-container>

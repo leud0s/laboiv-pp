@@ -1,0 +1,29 @@
+<ng-container>
+    <h3 class="">Detalle Del Producto</h3>
+    <div  class="d-flex flex-column m-3 justify-content-center align-items-center rounded contenedor">
+      <div *ngIf="producto">
+        <div>
+          <b>Código: </b>
+          <span>{{producto.codigo}}</span>
+        </div>
+        <div>
+          <b>Descripción: </b>
+          <span>{{producto.descripcion}}</span>
+        </div>
+        <div>
+          <b>Precio: </b>
+          <span>{{producto.precio}}</span>
+        </div>
+        <div>
+          <b>Stock: </b>
+          <span>{{producto.stock}}</span>
+        </div>
+        <div>
+          <b>Comestible: </b>
+          <span>{{producto.comestible ? 'Si' : 'No'}}</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="btn btn-secondary mt-2" (click)="cleanProducto()" [disabled]="producto? false : true">Limpiar</button>
+  
+  </ng-container>

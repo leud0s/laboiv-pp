@@ -7,5 +7,5 @@ import { Repartidor } from 'src/app/models/repartidor.models';
   styleUrls: ['./detalle-pais.component.scss']
 })
 export class DetallePaisComponent {
-  @Input() repartidor !: Repartidor | null;
+  @Input() pais: any;
 }
