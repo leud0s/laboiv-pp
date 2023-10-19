@@ -15,7 +15,7 @@ export class PizzaAltaComponent {
   constructor(private pizzaService : PizzaService) {
     this.formAlta = new FormGroup({
       nombre: new FormControl(null, {
-        validators:[FormValidator.onlyLetters],
+        validators:[FormValidator.onlyLettersAndSpaces],
         updateOn:'change'
       }),
       ingredientes: new FormControl(),
@@ -36,7 +36,7 @@ export class PizzaAltaComponent {
     if (this.formAlta.invalid) return;
 
     const pizza={
-      id: Math.floor(Math.random() * 10000000).toLocaleString(),
+      id: Math.floor(Math.random() * 1000).toLocaleString(),
       nombre: this.nombre.value,
       ingredientes: this.ingredientes.value,
       precio: Number(this.precio.value),

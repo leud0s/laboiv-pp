@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
+import { PizzaBajaComponent } from 'src/app/component/pizza-baja/pizza-baja.component';
 import { PizzaModificacionComponent } from 'src/app/component/pizza-modificacion/pizza-modificacion.component';
 import { Pizza } from 'src/app/models/pizza.models';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-pizza-abm',
@@ -12,7 +14,8 @@ export class PizzaAbmComponent {
   selected!: Pizza;
   loading = false;
   @ViewChild('modificar') modificar !: PizzaModificacionComponent;
-
+  @ViewChild('eliminar') eliminar !: PizzaBajaComponent;
+  constructor(private authService: AuthService){}
   ngOnInit(): void {
     this.cargarUsuario();
   }
@@ -20,6 +23,7 @@ export class PizzaAbmComponent {
   selectedPizza(e: any) {
     this.selected = e;
     this.modificar.setValuesForm(e);
+    this.eliminar.setValuesForm(e);
   }
 
   pizzaCreada(e: Pizza) {
@@ -27,9 +31,6 @@ export class PizzaAbmComponent {
   }
 
   cargarUsuario() {
-    let user = localStorage.getItem('user');
-    if (user !== null) {
-      this.user = JSON.parse(user);
-    }
+    this.user = this.authService.getCurrentUser();
   }
 }

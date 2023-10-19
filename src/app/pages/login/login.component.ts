@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
-import { AlertComponent } from 'src/app/component/alert/alert.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { User } from 'src/app/models/user.models';
 
@@ -53,22 +52,32 @@ export class LoginComponent {
           name: res.user.displayName,
           email: res.user.email
         }
+        this.alert = `Bienvenido ${user.email}`;
         this.firebaseSvc.saveLog(res.user.email);
-        
+        let sb = this.snackBar.open(this.alert, 'cerrar', {
+          duration: 3000,
+        });
+        sb.onAction().subscribe(() => {
+          sb.dismiss();
+        });
         this.router.navigate(['bienvenido'], { queryParams: user });
         
 
         this.form.reset();
       }, error =>{
         this.loading = false;
+        console.log(error.message);
         if(error.message === "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password)."){
           this.alert = "Contraseña incorrecta vuelva a intentar";
         }
         if(error.message ==="Firebase: There is no user record corresponding to this identifier. The user may have been deleted. (auth/user-not-found)."){
           this.alert = "Usuario incorrecto vuelva a intentar";
         }
+        if(error.message === "Firebase: Error (auth/invalid-login-credentials)."){
+          this.alert = "Usuario invalido";
+        }
         let sb = this.snackBar.open(this.alert, 'cerrar', {
-          duration: 3000,
+          duration: 5000,
         });
         sb.onAction().subscribe(() => {
           sb.dismiss();

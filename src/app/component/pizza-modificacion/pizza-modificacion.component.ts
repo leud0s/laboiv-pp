@@ -16,7 +16,7 @@ export class PizzaModificacionComponent {
   constructor(private pizzaService : PizzaService) {
     this.formMod = new FormGroup({
       nombre: new FormControl(null, {
-        validators:[FormValidator.onlyLetters],
+        validators:[FormValidator.onlyLettersAndSpaces],
         updateOn:'change'
       }),
       ingredientes: new FormControl(),
@@ -46,7 +46,7 @@ export class PizzaModificacionComponent {
       id: this.pizza.id,
     }
 
-    this.pizzaService.updatePizza(pizza.id, pizza)
+    this.pizzaService.updatePizza(pizza)
       .then(() => console.log('Pizza actualizada correctamente'))
       .catch(error => console.error('Error al actualizar la pizza', error))
       this.formMod.reset();

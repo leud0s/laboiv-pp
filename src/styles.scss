@@ -3,7 +3,6 @@ body{
     color: #fff;
 }
 
-html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
   .mat-mdc-text-field-wrapper{
@@ -23,4 +22,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   mat-error{
     color: #b32b30;
     font-weight: 500;
+  }
+  .mat-mdc-snack-bar-container {
+    --mdc-snackbar-container-color: #7c1ca4 !important;
+    --mdc-snackbar-supporting-text-color: rgba(214, 214, 214, 0.87);
+    --mat-snack-bar-button-color: rgba(0, 0, 0, 0.87);
   }

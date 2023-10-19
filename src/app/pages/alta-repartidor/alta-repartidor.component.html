@@ -1,3 +1,4 @@
+<div class="vh-100">
 <app-navbar [showButtons]="true" [usuario]="user" (loadingEvent)="loading=$event"></app-navbar>
 <app-spinner [showSpinner]="loading"></app-spinner>
 <div class="container-fluid contenedor w-100 mt-2 position-relative">
@@ -16,4 +17,5 @@
       <app-tabla-paises (selectCountryEvent)="selectCountry($event)"></app-tabla-paises>
     </div>
   </div>
+</div>
 </div>

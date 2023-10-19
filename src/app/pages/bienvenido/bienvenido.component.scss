@@ -2,10 +2,10 @@
     max-width: 750px;
   }
   .main{
-    height: 90%;
+    height: 100%;
   }
   .contenedor{
-    min-height: 90% !important;
+    min-height: 100% !important;
   }
   
   img{
@@ -29,4 +29,8 @@
   }
   b, p{
     padding: 5px;
+    font-size: 1rem;
+  }
+  b{
+    color: #800080;
   }

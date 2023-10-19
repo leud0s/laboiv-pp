@@ -1,5 +1,4 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PaisesService } from 'src/app/services/paises.service';
 import { Pais } from 'src/app/models/pais.models';
 

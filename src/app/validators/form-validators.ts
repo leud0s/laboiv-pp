@@ -43,6 +43,16 @@ export class FormValidator{
       return { validDate: true };
     }
   }
+  static onlyLettersAndSpaces(control: AbstractControl): ValidationErrors | null {
+    const valor = control.value;
+    const regex =  /^[a-zA-Z\s.\-]*$/;
+  
+    if (regex.test(valor)) {
+      return null;
+    } else {
+      return { onlyLettersAndSpaces: true };
+    }
+  }
 
 
 }

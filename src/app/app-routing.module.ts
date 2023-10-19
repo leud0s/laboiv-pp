@@ -13,8 +13,8 @@ const routes: Routes = [
   {path: 'bienvenido', component: BienvenidoComponent},
   {path: 'login', component: LoginComponent},
   {path: 'alta-repartidor', component: AltaRepartidorComponent,canActivate:[LoginGuard]},
-  {path: 'detalle-repartidor', component: RepartidorDetalleComponent/*,canActivate:[LoginAdminGuard]*/},
-  {path: 'pizza-abm', component: PizzaAbmComponent/*,canActivate:[LoginAdminGuard]*/}
+  {path: 'detalle-repartidor', component: RepartidorDetalleComponent,canActivate:[LoginAdminGuard]},
+  {path: 'pizza-abm', component: PizzaAbmComponent,canActivate:[LoginAdminGuard]}
 ];
 
 @NgModule({

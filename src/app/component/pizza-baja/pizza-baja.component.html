@@ -1,1 +1,9 @@
-<p>pizza-baja works!</p>
+<form (submit)="onSubmit()" [formGroup]="formDelete">
+
+    <app-form-input class="form-control {{nombre.errors ? 'is-invalid': ''}}" divClass="mb-3" label="Nombre"
+      controlName="nombre" type="text" [readOnly]="true">
+      <small class="invalid-feedback">Nombre invalido (solo letras) </small>
+    </app-form-input>
+  
+    <button type="submit" class="btn btn-primary mt-2">Eliminar</button>
+  </form>

@@ -12,14 +12,15 @@ export class PizzaService {
   constructor(private firestore : Firestore, private angularFire: AngularFirestore) { }
 
   addPizza(pizza: Pizza){
-    return addDoc(this.pizzaRef, pizza);
+    const documentRef = this.angularFire.collection('pizzas').doc(pizza.id);
+    return documentRef.set(pizza);
   }
 
   getPizzas(): Observable<Pizza[]> {
     return this.angularFire.collection<Pizza>('pizzas', ref => ref.orderBy('precio', 'asc')).valueChanges();
   }
 
-  /*updatePizza(pizza : Pizza){
+  updatePizza(pizza : Pizza){
     const updatedPizza = {
       nombre: pizza.nombre,
       ingredientes: pizza.ingredientes,
@@ -27,12 +28,12 @@ export class PizzaService {
       peso: pizza.peso,
     };
     return updateDoc(doc(this.pizzaRef,pizza.id), updatedPizza)
-  }*/
-  updatePizza(id: string, updatedPizza: Partial<Pizza>): Promise<void> {
+  }
+ /* updatePizza(id: string, updatedPizza: Partial<Pizza>): Promise<void> {
     const pizzaRef = this.angularFire.collection('pizzas').doc(id);
     return pizzaRef.update(updatedPizza);
-  }
-  deletePizza(id: string){
-    return deleteDoc(doc(this.pizzaRef,id));
+  }*/
+  deletePizza(pizza : Pizza){
+    return deleteDoc(doc(this.pizzaRef,pizza.id));
   }
 }

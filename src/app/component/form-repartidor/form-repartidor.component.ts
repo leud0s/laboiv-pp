@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import {
   FormControl,
   FormGroup,
@@ -8,7 +8,6 @@ import {
 } from '@angular/forms';
 import { Pais } from 'src/app/models/pais.models';
 import { RepartidorService } from 'src/app/services/repartidor.service';
-import { FormInputComponent } from '../form-input/form-input.component';
 import { FormValidator } from 'src/app/validators/form-validators';
 import { Repartidor } from 'src/app/models/repartidor.models';
 

@@ -18,7 +18,7 @@ export class RepartidorDetalleComponent {
   }
 
   cargarUsuario() {
-    let user = this.authService.getCurrentUser();
+    this.user = this.authService.getCurrentUser();
   }
 
   selectedRepartidor(event: Repartidor) {
